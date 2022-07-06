@@ -1,1 +1,24 @@
 @import "~bootstrap/scss/bootstrap";
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome";
+
+
+img{
+  border-radius: 50%;
+}
+.line{
+   height: 7px;
+}
+.name{
+  font-family: Bahnschrift;
+}
+
+.company{
+  color: black;
+  font-weight: bold;
+}
+progress {
+  width: 200px;
+  height: 30px;
+}
+
