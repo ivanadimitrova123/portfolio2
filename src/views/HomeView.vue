@@ -7,10 +7,10 @@
     <!--image and info-->
     <section class="container mb-lg-3">
       <div class="row py-lg-5 pt-4">
-        <div class="col col-lg-3 d-flex justify-content-center col-6">
+        <div class="col col-lg-3 d-flex justify-content-center col-7">
           <img alt="profile picture" src="../assets/images/profile-picture.jpg">
         </div>
-        <div class="col col-lg-3 col-6">
+        <div class="col col-lg-3 col-5">
           <p class="name text-dark fs-1">Ivana</p>
           <p class="name text-danger fs-1">Dimitrova</p>
           <p class="fs-4">Software engineer</p>
@@ -42,33 +42,14 @@
     <!--employment-->
     <section class="mb-5 container">
       <div class="row">
-        <div class="col col-md-3 text-md-end fs-5 order-md-1 order-2 text-center">
+        <div class="col col-md-3 text-md-end fs-5 order-md-1 order-2 text-center mb-3 mb-md-5">
           <i class="fa fa-briefcase me-2" aria-hidden="true"></i>
           <span>EMPLOYMENT</span>
         </div>
         <div class="col col-md-9 bg-danger order-md-2 line col-12 order-1 mb-3"></div>
       </div>
-      <div class="row mt-md-5 mt-3">
-        <div class="col col-3 text-danger text-end">SOFTWARE ENGINEER</div>
-        <div class="col col-9 text-start pe-5">
-          <p class="company">Hi Solutions (2020-present)</p>
-          <ul>
-            <li>Direct software design</li>
-            <li>Evaluate interface between hardware and software</li>
-            <li>Advice customers regarding maintenance of software system</li>
-          </ul>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-3 text-danger text-end">JUNIOR SOFTWARE ENGINEER</div>
-        <div class="col col-9 text-start pe-5">
-          <p class="company">RealPro Software(2017-2020)</p>
-          <ul>
-            <li>Stored,retrieved, and manipulated data</li>
-            <li>Modified existing softwares to correct errors</li>
-            <li>Prepared detailed reports</li>
-          </ul>
-        </div>
+      <div>
+        <card-for-work v-for="experience in workExperience":experience="experience"/>
       </div>
     </section>
     <!--skils-->
@@ -95,29 +76,14 @@
     <!--education-->
     <section class="mb-5 container">
       <div class="row">
-        <div class="col col-md-3 text-md-end fs-5 order-md-1 order-2 text-center">
+        <div class="col col-md-3 text-md-end fs-5 order-md-1 order-2 text-center mb-3 mb-md-5">
           <i class="fa fa-university me-2" aria-hidden="true"></i>
           <span>EDUCATION</span>
         </div>
         <div class="col col-md-9 bg-danger order-md-2 line col-12 order-1 mb-3"></div>
       </div>
-      <div class="row mt-5">
-        <div class="col col-3 text-danger text-end">Bachelor degree</div>
-        <div class="col col-9 text-start">
-          <p class="">Ss. Cyril and Methodius University in Skopje (2020-present)</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-3 text-danger text-end">High School</div>
-        <div class="col col-9 text-start">
-          <p class="">Ljupco Santov in Kocani (2016-2020)</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-3 text-danger text-end">Elementary School</div>
-        <div class="col col-9 text-start">
-          <p class="">Ss. Cyril and Methodius in Kocani (2012-2016)</p>
-        </div>
+      <div>
+        <card-for-school v-for="school in schools":school="school"/>
       </div>
     </section>
     <!--language-->
@@ -150,3 +116,62 @@
     </section>
   </main>
 </template>
+
+<script>
+import CardForWork from "../components/layout/CardForWork";
+import CardForSchool from "../components/layout/CardForSchool";
+export default {
+  name: "HomeView",
+  components: {
+    CardForWork,
+    CardForSchool
+  },
+  data(){
+    return{
+      workExperience: [
+        {
+          role:'SOFTWARE ENGINEER',
+          companyName:'Hi Solutions (2020-present)',
+          workDone1:'Direct software design',
+          workDone2:'Evaluate interface between hardware and software',
+          workDone3:'Advice customers regarding maintenance of software system'
+        },
+        {
+          role:'JUNIOR SOFTWARE ENGINEER',
+          companyName:'RealPro Software(2017-2020)',
+          workDone1:'Prepared detailed reports',
+          workDone2:'Stored,retrieved, and manipulated data',
+          workDone3:' Modified existing softwares to correct errors'
+        }
+      ],
+      schools: [
+        {
+          schoolDegree:'Bachelor degree',
+          schoolName:'Ss. Cyril and Methodius University in Skopje (2020-present)'
+        },
+        {
+          schoolDegree:'High School',
+          schoolName:'Ljupco Santov in Kocani (2016-2020)'
+        },{
+          schoolDegree:'Elementary School',
+          schoolName:'Ss. Cyril and Methodius in Kocani (2012-2016)'
+        }
+      ]
+    }
+  }
+}
+</script>
+
+
+<!--
+<div class="container py-5">
+//false/NaN/[].length//0
+<div v-if="0">test</div>
+</div>
+
+<div class="container py-5 ">
+<div v-for="i in 4">
+  <div class="col-4 bg-danger" v-if="i % 2 ===0">test {{ i }}</div>
+</div>
+</div>
+-->
