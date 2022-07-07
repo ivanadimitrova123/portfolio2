@@ -49,7 +49,7 @@
         <div class="col col-md-9 bg-danger order-md-2 line col-12 order-1 mb-3"></div>
       </div>
       <div>
-        <card-for-work v-for="experience in workExperience":experience="experience"/>
+        <card-for-work v-for="experience in workExperience" :experience="experience"/>
       </div>
     </section>
     <!--skils-->
@@ -83,7 +83,7 @@
         <div class="col col-md-9 bg-danger order-md-2 line col-12 order-1 mb-3"></div>
       </div>
       <div>
-        <card-for-school v-for="school in schools":school="school"/>
+        <card-for-school v-for="school in schools" :school="school"/>
       </div>
     </section>
     <!--language-->
@@ -110,6 +110,78 @@
         </div>
       </div>
     </section>
+    <!--rate my cv-->
+    <section class="mb-5 container">
+      <div class="row">
+        <div class="col col-md-3 text-md-end fs-5 order-md-1 order-2 text-center mb-3 mb-md-5">
+          <i class="fa fa-smile-o me-2" aria-hidden="true"></i>
+          <span>RATE MY CV</span>
+        </div>
+        <div class="col col-md-9 bg-danger order-md-2 line col-12 order-1 mb-3"></div>
+      </div>
+      <div class="row">
+        <div class="col col-md-3 text-danger text-md-end col-12 text-center">Interesting</div>
+        <div class="col col-md-9 text-md-start col-12 text-center d-md-flex flex-md-row">
+          <p>Click on the star multiple times to rate if my cv was interesting</p>
+          <i role="button" @click="increaseCounterForInteresting" class="fa fa-star-o fa-2x ms-1" aria-hidden="true"></i>
+          <span class="ms-1">{{counterForInteresting }}</span>
+          <div class="d-flex flex-row justify-content-md-start justify-content-center">
+            <span v-for="i in counterForInteresting"><i class="fa fa-star" aria-hidden="true"></i></span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-md-3 text-danger text-md-end col-12 text-center">Innformative</div>
+        <div class="col col-md-9 text-md-start col-12 text-center d-md-flex flex-md-row">
+          <p>Click on the star multiple times to rate if my cv was informative</p>
+          <i role="button" @click="increaseCounterForInformative" class="fa fa-star-o fa-2x ms-1" aria-hidden="true"></i>
+          <span class="ms-1">{{counterForInformative }}</span>
+          <span class="d-flex flex-row justify-content-md-start  justify-content-center">
+            <span v-for="i in counterForInformative"><i class="fa fa-star" aria-hidden="true"></i></span>
+          </span>
+        </div>
+      </div><div class="row">
+      <div class="col col-md-3 text-danger text-md-end col-12 text-center">Easy to navigate</div>
+      <div class="col col-md-9 text-md-start col-12 text-center d-md-flex flex-md-row">
+        <p>Click on the star multiple times to rate if my cv was easy to navigate</p>
+        <i role="button" @click="increaseCounterForEasyToNavigate" class="fa fa-star-o fa-2x ms-1" aria-hidden="true"></i>
+        <span class="ms-1">{{ counterForEasyToNavigate }}</span>
+        <span class="d-flex flex-row justify-content-md-start  justify-content-center">
+            <span v-for="i in counterForEasyToNavigate"><i class="fa fa-star" aria-hidden="true"></i></span>
+        </span>
+      </div>
+    </div>
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col col-xl-4 text-center my-3 py-1 fs-5 bg-danger text-white col-md-5 col-12">
+            <span>Overall you like my CV </span>
+            <span id="percent" >{{ percentCounter }}%</span>
+        </div>
+      </div>
+    </section>
+
+    <!--
+    <section class="mb-5 container">
+      <div class="row">
+        <div class="col col-md-3 text-md-end fs-5 order-md-1 order-2 text-center mb-3 mb-md-5">
+          <i class="fa fa-smile-o me-2" aria-hidden="true"></i>
+          <span>RATE MY CV</span>
+        </div>
+        <div class="col col-md-9 bg-danger order-md-2 line col-12 order-1 mb-3"></div>
+      </div>
+      <div>
+        <card-for-rating v-for="rate in rateing":rate="rate"/>
+      </div>
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col col-xl-4 text-center my-3 py-1 fs-5 bg-danger text-white col-md-5 col-12">
+            <span>Overall you like my CV </span>
+            <span id="percent" >{{ percentCounter }}%</span>
+        </div>
+      </div>
+    </section>
+    -->
+
     <!--last red line-->
     <section>
       <div class="row py-2 bg-danger"></div>
@@ -120,41 +192,99 @@
 <script>
 import CardForWork from "../components/layout/CardForWork";
 import CardForSchool from "../components/layout/CardForSchool";
+import CardForRating from "../components/layout/CardForRating";
 export default {
   name: "HomeView",
   components: {
+    CardForRating,
     CardForWork,
     CardForSchool
   },
-  data(){
-    return{
+  methods: {
+    increaseCounterForInteresting() {
+      if (this.counterForInteresting < 5) {
+        this.counterForInteresting++;
+      }
+    },
+    increaseCounterForInformative() {
+      if (this.counterForInformative < 5) {
+        this.counterForInformative++;
+      }
+    },
+    increaseCounterForEasyToNavigate() {
+      if (this.counterForEasyToNavigate < 5) {
+        this.counterForEasyToNavigate++;
+      }
+    },
+  },
+  computed: {
+    percentCounter() {
+      return ((this.counterForInteresting + this.counterForInformative + this.counterForEasyToNavigate) / 15 * 100).toFixed(2)
+    }
+  },
+  watch: {
+    counterForInteresting() {
+      console.log("counterForInteresting")
+    },
+    counterForInformative() {
+      console.log("counterForInformative")
+    },
+    counterForEasyToNavigate() {
+      console.log("counterForEasyToNavigate")
+    },
+  },
+  data() {
+    return {
+      counterForInteresting: 0,
+      counterForInformative: 0,
+      counterForEasyToNavigate: 0,
       workExperience: [
         {
-          role:'SOFTWARE ENGINEER',
-          companyName:'Hi Solutions (2020-present)',
-          workDone1:'Direct software design',
-          workDone2:'Evaluate interface between hardware and software',
-          workDone3:'Advice customers regarding maintenance of software system'
+          role: 'SOFTWARE ENGINEER',
+          companyName: 'Hi Solutions (2020-present)',
+          workDone1: 'Direct software design',
+          workDone2: 'Evaluate interface between hardware and software',
+          workDone3: 'Advice customers regarding maintenance of software system'
         },
         {
-          role:'JUNIOR SOFTWARE ENGINEER',
-          companyName:'RealPro Software(2017-2020)',
-          workDone1:'Prepared detailed reports',
-          workDone2:'Stored,retrieved, and manipulated data',
-          workDone3:' Modified existing softwares to correct errors'
+          role: 'JUNIOR SOFTWARE ENGINEER',
+          companyName: 'RealPro Software(2017-2020)',
+          workDone1: 'Prepared detailed reports',
+          workDone2: 'Stored,retrieved, and manipulated data',
+          workDone3: ' Modified existing softwares to correct errors'
         }
       ],
       schools: [
         {
-          schoolDegree:'Bachelor degree',
-          schoolName:'Ss. Cyril and Methodius University in Skopje (2020-present)'
+          schoolDegree: 'Bachelor degree',
+          schoolName: 'Ss. Cyril and Methodius University in Skopje (2020-present)'
         },
         {
-          schoolDegree:'High School',
-          schoolName:'Ljupco Santov in Kocani (2016-2020)'
-        },{
-          schoolDegree:'Elementary School',
-          schoolName:'Ss. Cyril and Methodius in Kocani (2012-2016)'
+          schoolDegree: 'High School',
+          schoolName: 'Ljupco Santov in Kocani (2016-2020)'
+        }, {
+          schoolDegree: 'Elementary School',
+          schoolName: 'Ss. Cyril and Methodius in Kocani (2012-2016)'
+        }
+      ],
+      rateing: [
+        {
+          rateFor: 'Interesting',
+          clickText: 'Click on the star multiple times to rate if my cv was interesting',
+          increaseFor: 'increaseCounterForInteresting',
+          starFor: 'starForInteresting'
+        },
+        {
+          rateFor: 'Informative',
+          clickText: 'Click on the star multiple times to rate if my cv was informative',
+          increaseFor: 'increaseCounterForInformative',
+          starFor: 'starForInformative'
+        },
+        {
+          rateFor: 'Easy to navigate',
+          clickText: 'Click on the star multiple times to rate if my cv was easy to navigate',
+          increaseFor: 'increaseCounterForEasyToNavigate',
+          starFor: 'starForNavigation'
         }
       ]
     }
