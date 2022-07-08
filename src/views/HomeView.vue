@@ -16,8 +16,22 @@
           <p class="fs-4">Software engineer</p>
         </div>
         <div class="col col-lg-4 text-lg-end py-lg-5 col-12 text-center pt-5">
-          <p>Phone: 070-871-460</p>
-          <p>E-mail: ivanadimitrova23@gmail.com</p>
+          <p class="pe-lg-5 pt-lg-4">Phone: 070-871-460</p>
+          <a href="mailto:ivanadimitrova23@gmail.com">
+            <i class="fa fa-envelope me-4 fa-2x social" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.facebook.com/ivana.dimitrova23/">
+            <i class="fa fa-facebook me-4 fa-2x social" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.instagram.com/ivana.dimitrovva/">
+            <i class="fa fa-instagram me-4 fa-2x social" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/ivana-dimitrova-19ba46170/">
+            <i class="fa fa-linkedin-square me-4 fa-2x social" aria-hidden="true"></i>
+          </a>
+          <a href="https://github.com/ivanadimitrova123">
+            <i class="fa fa-github fa-2x social" aria-hidden="true"></i>
+          </a>
         </div>
         <div class="col col-lg-2"></div>
       </div>
@@ -34,7 +48,8 @@
       <div class="row">
         <div class="col col-md-3"></div>
         <div class="col col-md-6 text-md-start col-12 text-center">
-          <p>Software engineer with thorough hands-on experience in all levels of testing,including preformance,functional,integration,system, and user acceptance testing.</p>
+          <p>Software engineer with thorough hands-on experience in all levels of testing,including
+            preformance,functional,integration,system, and user acceptance testing.</p>
         </div>
         <div class="col col-3"></div>
       </div>
@@ -56,7 +71,7 @@
     <section class="mb-5 container">
       <div class="row">
         <div class="col col-md-3 text-md-end fs-5 order-md-1 order-2 text-center">
-          <i class="fa fa-desktop me-2" aria-hidden="true" ></i>
+          <i class="fa fa-desktop me-2" aria-hidden="true"></i>
           <span>SKILLS</span>
         </div>
         <div class="col col-md-9 bg-danger order-md-2 line col-12 order-1 mb-3"></div>
@@ -65,10 +80,10 @@
         <div class="col col-md-3"></div>
         <div class="col col-md-9 text-md-start col-12 text-center">
           <ul>
-            <li>Preformance and scalability optimisation</li>
-            <li>SharePoint</li>
             <li>API design</li>
+            <li>SharePoint</li>
             <li>Data warehousing and analytics</li>
+            <li>Preformance and scalability optimisation</li>
           </ul>
         </div>
       </div>
@@ -119,69 +134,17 @@
         </div>
         <div class="col col-md-9 bg-danger order-md-2 line col-12 order-1 mb-3"></div>
       </div>
-      <div class="row">
-        <div class="col col-md-3 text-danger text-md-end col-12 text-center">Interesting</div>
-        <div class="col col-md-9 text-md-start col-12 text-center d-md-flex flex-md-row">
-          <p>Click on the star multiple times to rate if my cv was interesting</p>
-          <i role="button" @click="increaseCounterForInteresting" class="fa fa-star-o fa-2x ms-1" aria-hidden="true"></i>
-          <span class="ms-1">{{counterForInteresting }}</span>
-          <div class="d-flex flex-row justify-content-md-start justify-content-center">
-            <span v-for="i in counterForInteresting"><i class="fa fa-star" aria-hidden="true"></i></span>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-md-3 text-danger text-md-end col-12 text-center">Innformative</div>
-        <div class="col col-md-9 text-md-start col-12 text-center d-md-flex flex-md-row">
-          <p>Click on the star multiple times to rate if my cv was informative</p>
-          <i role="button" @click="increaseCounterForInformative" class="fa fa-star-o fa-2x ms-1" aria-hidden="true"></i>
-          <span class="ms-1">{{counterForInformative }}</span>
-          <span class="d-flex flex-row justify-content-md-start  justify-content-center">
-            <span v-for="i in counterForInformative"><i class="fa fa-star" aria-hidden="true"></i></span>
-          </span>
-        </div>
-      </div><div class="row">
-      <div class="col col-md-3 text-danger text-md-end col-12 text-center">Easy to navigate</div>
-      <div class="col col-md-9 text-md-start col-12 text-center d-md-flex flex-md-row">
-        <p>Click on the star multiple times to rate if my cv was easy to navigate</p>
-        <i role="button" @click="increaseCounterForEasyToNavigate" class="fa fa-star-o fa-2x ms-1" aria-hidden="true"></i>
-        <span class="ms-1">{{ counterForEasyToNavigate }}</span>
-        <span class="d-flex flex-row justify-content-md-start  justify-content-center">
-            <span v-for="i in counterForEasyToNavigate"><i class="fa fa-star" aria-hidden="true"></i></span>
-        </span>
-      </div>
-    </div>
-      <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col col-xl-4 text-center my-3 py-1 fs-5 bg-danger text-white col-md-5 col-12">
-            <span>Overall you like my CV </span>
-            <span id="percent" >{{ percentCounter }}%</span>
-        </div>
-      </div>
-    </section>
-
-    <!--
-    <section class="mb-5 container">
-      <div class="row">
-        <div class="col col-md-3 text-md-end fs-5 order-md-1 order-2 text-center mb-3 mb-md-5">
-          <i class="fa fa-smile-o me-2" aria-hidden="true"></i>
-          <span>RATE MY CV</span>
-        </div>
-        <div class="col col-md-9 bg-danger order-md-2 line col-12 order-1 mb-3"></div>
-      </div>
       <div>
-        <card-for-rating v-for="rate in rateing":rate="rate"/>
+        <card-for-rating v-for="rate in rateing" :rate="rate" :variable="variable" @updateCounter="variable = $event"/>
       </div>
       <div class="row">
         <div class="col-md-3"></div>
         <div class="col col-xl-4 text-center my-3 py-1 fs-5 bg-danger text-white col-md-5 col-12">
-            <span>Overall you like my CV </span>
-            <span id="percent" >{{ percentCounter }}%</span>
+          <span>Overall you like my CV </span>
+          <span> {{ (variable / 15 * 100).toFixed(2) }} %</span>
         </div>
       </div>
     </section>
-    -->
-
     <!--last red line-->
     <section>
       <div class="row py-2 bg-danger"></div>
@@ -193,6 +156,7 @@
 import CardForWork from "../components/layout/CardForWork";
 import CardForSchool from "../components/layout/CardForSchool";
 import CardForRating from "../components/layout/CardForRating";
+
 export default {
   name: "HomeView",
   components: {
@@ -200,44 +164,9 @@ export default {
     CardForWork,
     CardForSchool
   },
-  methods: {
-    increaseCounterForInteresting() {
-      if (this.counterForInteresting < 5) {
-        this.counterForInteresting++;
-      }
-    },
-    increaseCounterForInformative() {
-      if (this.counterForInformative < 5) {
-        this.counterForInformative++;
-      }
-    },
-    increaseCounterForEasyToNavigate() {
-      if (this.counterForEasyToNavigate < 5) {
-        this.counterForEasyToNavigate++;
-      }
-    },
-  },
-  computed: {
-    percentCounter() {
-      return ((this.counterForInteresting + this.counterForInformative + this.counterForEasyToNavigate) / 15 * 100).toFixed(2)
-    }
-  },
-  watch: {
-    counterForInteresting() {
-      console.log("counterForInteresting")
-    },
-    counterForInformative() {
-      console.log("counterForInformative")
-    },
-    counterForEasyToNavigate() {
-      console.log("counterForEasyToNavigate")
-    },
-  },
   data() {
     return {
-      counterForInteresting: 0,
-      counterForInformative: 0,
-      counterForEasyToNavigate: 0,
+      variable: 0,
       workExperience: [
         {
           role: 'SOFTWARE ENGINEER',
@@ -270,38 +199,18 @@ export default {
       rateing: [
         {
           rateFor: 'Interesting',
-          clickText: 'Click on the star multiple times to rate if my cv was interesting',
-          increaseFor: 'increaseCounterForInteresting',
-          starFor: 'starForInteresting'
+          clickText: 'Click on the star multiple times to rate if my CV was interesting',
         },
         {
           rateFor: 'Informative',
-          clickText: 'Click on the star multiple times to rate if my cv was informative',
-          increaseFor: 'increaseCounterForInformative',
-          starFor: 'starForInformative'
+          clickText: 'Click on the star multiple times to rate if my CV was informative',
         },
         {
           rateFor: 'Easy to navigate',
-          clickText: 'Click on the star multiple times to rate if my cv was easy to navigate',
-          increaseFor: 'increaseCounterForEasyToNavigate',
-          starFor: 'starForNavigation'
+          clickText: 'Click on the star multiple times to rate if my CV was easy to navigate',
         }
       ]
     }
   }
 }
 </script>
-
-
-<!--
-<div class="container py-5">
-//false/NaN/[].length//0
-<div v-if="0">test</div>
-</div>
-
-<div class="container py-5 ">
-<div v-for="i in 4">
-  <div class="col-4 bg-danger" v-if="i % 2 ===0">test {{ i }}</div>
-</div>
-</div>
--->
